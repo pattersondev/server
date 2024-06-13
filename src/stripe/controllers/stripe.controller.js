@@ -5,3 +5,9 @@ exports.createCheckoutSession = async (req, res) => {
         return res.status(200).send(response);
     });
 };
+
+exports.getLineItems = async (req, res) => {
+    stripeService.getLineItems({ sessionId: req.params.sessionId }, response => {
+        return res.status(200).send(response);
+    });
+}
