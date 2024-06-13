@@ -44,3 +44,4 @@ Thumbs.db
 # Database Files
 server/db.js
 db.js
+app.config.js
