@@ -1,5 +1,3 @@
-const { STRIPE_CONFIG } = require('../../../app.config');
-
 const STRIPE_CONFIG = {
     SECRET_KEY: process.env.SECRET_KEY,
     CURRENCY: process.env.CURRENCY,
