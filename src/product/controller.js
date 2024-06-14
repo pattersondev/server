@@ -1,5 +1,10 @@
-require('dotenv').config()
+const dotenv = require('dotenv');
+const config = dotenv.config();
+const queries = require("./queries");
+
 const Pool = require('pg').Pool;
+
+console.log(process.env.PASSWORD);
 
 const pool = new Pool({
     user: process.env.USER,
@@ -9,7 +14,6 @@ const pool = new Pool({
     port: process.env.PORT
 });
 
-const queries = require("./queries");
 
 const getProducts = async (req, res) => {
     pool.query(queries.getProducts, (error, results) => {

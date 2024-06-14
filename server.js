@@ -21,12 +21,12 @@ app.use('/api/v1/products', productRoutes);
 
 app.use('/api', require('./src/stripe/controllers/routes/app.routes'));
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000, () => {
     console.log(`DB server running!`);
 });
 
 
 
-app.listen(process.env.STRIPE_PORT || 5000, () => {
+app.listen(process.env.STRIPE_PORT || 3500, () => {
     console.log(`Stripe server running!`);
 });
