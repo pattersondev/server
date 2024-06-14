@@ -22,12 +22,12 @@ app.get('/', (req, res) => {
 app.use('/api/v1/products', productRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server is running on port ${dbPort}`);
+    console.log(`DB server running!`);
 });
 
 
 app.use('/api', require('./src/stripe/controllers/routes/app.routes'));
 
 app.listen(process.env.PORT || 5000, () => {
-    console.log(`Server is running on port ${stripePort}`);
+    console.log(`Stripe server running!`);
 });
