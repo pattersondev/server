@@ -21,13 +21,14 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/products', productRoutes);
 
+app.use('/api', require('./src/stripe/controllers/routes/app.routes'));
+
 app.listen(process.env.PORT || 3000, () => {
     console.log(`DB server running!`);
 });
 
 
-app.use('/api', require('./src/stripe/controllers/routes/app.routes'));
 
-app.listen(process.env.PORT || 5000, () => {
-    console.log(`Stripe server running!`);
-});
+// app.listen(process.env.PORT || 5000, () => {
+//     console.log(`Stripe server running!`);
+// });
