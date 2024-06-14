@@ -3,8 +3,8 @@ const productRoutes = require('./src/product/routes');
 const cors = require('cors');
 
 const app = express();
-const stripePort = 3000;
-const dbPort = 3500;
+// const stripePort = 3000;
+// const dbPort = 3500;
 
 const corsOptions = {
     origin: '*',
@@ -21,13 +21,13 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/products', productRoutes);
 
-app.listen(dbPort, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Server is running on port ${dbPort}`);
 });
 
 
 app.use('/api', require('./src/stripe/controllers/routes/app.routes'));
 
-app.listen(stripePort, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log(`Server is running on port ${stripePort}`);
 });
