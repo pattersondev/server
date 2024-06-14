@@ -27,7 +27,6 @@ const getProductByName = async (req, res) => {
             throw error;
         }
         res.status(200).json(results.rows);
-        console.log(results.rows, req.params.name);
     });
 }
 
