@@ -4,16 +4,19 @@ const queries = require("./queries");
 
 const Pool = require('pg').Pool;
 
-const testPool = require('../../db');
+
+const password = process.env.PASSWORD;
+const host = process.env.HOST;
+const user = process.env.USER;
+const database = process.env.DATABASE;
 
 
-console.log(process.env.PASSWORD);
 
 const pool = new Pool({
-    user: process.env.USER,
-    host: process.env.HOST,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD,
+    user: user,
+    host: host,
+    database: database,
+    password: password,
     port: 5432,
 });
 
