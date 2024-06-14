@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const config = dotenv.config();
 const queries = require("./queries");
+const { ssl } = require('pg/lib/defaults');
 
 const Pool = require('pg').Pool;
 
@@ -18,6 +19,9 @@ const pool = new Pool({
     database: database,
     password: password,
     port: 5432,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 const getProducts = async (req, res) => {
