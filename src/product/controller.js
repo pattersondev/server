@@ -16,11 +16,23 @@ const getProductById = async (req, res) => {
         if (error) {
             throw error;
         }
+        res.status(200).json(results.rows[0]);
+    });
+}
+
+const getProductByName = async (req, res) => {
+    const name = req.params.name;
+    pool.query(queries.getProductByName, [name], (error, results) => {
+        if (error) {
+            throw error;
+        }
         res.status(200).json(results.rows);
+        console.log(results.rows, req.params.name);
     });
 }
 
 module.exports = {
     getProducts,
-    getProductById
+    getProductById,
+    getProductByName
 }

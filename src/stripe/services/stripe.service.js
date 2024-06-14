@@ -20,8 +20,8 @@ const createCheckoutSession = async (req, res) => {
 
 const getLineItems = async (req, res) => {
     const session = await stripe.checkout.sessions.retrieve(req.sessionId);
-
-    res.json(session);
+    const lineItems = await stripe.checkout.sessions.listLineItems(session.id);
+    res({ customerName: session.customer_details.name, customerEmail: session.customer_details.email, total: session.amount_total, paymentStatus: session.payment_status, paymentIntent: session.payment_intent, lineItems: lineItems });
 };
 
 module.exports = {
