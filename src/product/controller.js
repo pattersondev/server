@@ -9,16 +9,13 @@ const testPool = require('../../db');
 
 console.log(process.env.PASSWORD);
 
-// const pool = new Pool({
-//     user: process.env.USER,
-//     host: process.env.HOST,
-//     database: process.env.DATABASE,
-//     password: process.env.PASSWORD,
-//     port: 5432,
-//     connectionString: 'postgres://uaf8d4lbogp63n:p88ea1bd613fb4503e0e49e4b0667bdfebabe3a9bb6420388feeab927e4b38fec@ce0lkuo944ch99.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d3rf3ajp2ptaah'
-// });
-
-const pool = testPool;
+const pool = new Pool({
+    user: process.env.USER,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: 5432,
+});
 
 const getProducts = async (req, res) => {
     pool.query(queries.getProducts, (error, results) => {
