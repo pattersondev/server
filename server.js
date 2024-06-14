@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/products', productRoutes);
 
-// app.use('/api', require('./src/stripe/controllers/routes/app.routes'));
+app.use('/api', require('./src/stripe/controllers/routes/app.routes'));
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`DB server running!`);
