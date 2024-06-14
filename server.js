@@ -21,7 +21,7 @@ app.use('/api/v1/products', productRoutes);
 
 app.use('/api', require('./src/stripe/controllers/routes/app.routes'));
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log(`DB server running!`);
 });
 
