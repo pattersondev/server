@@ -1,5 +1,12 @@
 const { STRIPE_CONFIG } = require('../../../app.config');
 
+const STRIPE_CONFIG = {
+    SECRET_KEY: process.env.SECRET_KEY,
+    CURRENCY: process.env.CURRENCY,
+    SUCCESS_URL: process.env.SUCCESS_URL,
+    CANCEL_URL: process.env.CANCEL_URL
+}
+
 const stripe = require('stripe')(STRIPE_CONFIG.SECRET_KEY);
 
 const createCheckoutSession = async (req, res) => {
